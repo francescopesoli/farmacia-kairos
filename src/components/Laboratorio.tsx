@@ -2,9 +2,9 @@ import { Box, Typography } from "@mui/material";
 import Slider from "react-slick";
 
 const prodotti = [
-    "/prodotti/biocist.png",
-    "/prodotti/biocist.png",
-    "/prodotti/biocist.png",
+    "/prodotti/farmaco1.svg",
+    "/prodotti/farmaco2.svg",
+    "/prodotti/farmaco3.svg",
 ];
 
 const Laboratorio = () => {

@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { AppBar, Toolbar, Typography, Button, Box, IconButton, Drawer, List, ListItem, ListItemText } from "@mui/material";
+import { AppBar, Toolbar, Button, Box, IconButton, Drawer, List, ListItem, ListItemText } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link } from "react-router-dom";
-import logo from "@assets/kairosFarmacie.jpg";
+import logo from "@assets/logoKairos.svg";
 
 const Navbar = () => {
     const [mobileOpen, setMobileOpen] = useState(false);
@@ -14,9 +14,9 @@ const Navbar = () => {
     const navLinks = [
         { label: "Home", path: "/" },
         { label: "Chi siamo", path: "/chi-siamo" },
-        { label: "Le nostre marche", path: "/marchi" },
+        { label: "I nostri marche", path: "/marchi" },
         { label: "Le nostre farmacie", path: "/farmacie" },
-        { label: "I prodotti del nostro lab", path: "/prodotti" },
+        { label: "I prodotti del nostro laboratorio", path: "/prodotti" },
     ];
 
     return (
@@ -24,9 +24,11 @@ const Navbar = () => {
             <AppBar position="sticky" sx={{ bgcolor: "primary.main" }}>
                 <Toolbar>
                     {/* Logo */}
-                    <Typography variant="h6" sx={{ flexGrow: 1, color: "white", fontWeight: "bold", display: "flex", alignItems: "center" }}>
-                        <img src={logo} alt="Farmacie Kairos" style={{ height: "100px", marginRight: "10px" }} />
-                    </Typography>
+                    <Box sx={{ flexGrow: 2, display: "flex", alignItems: "center" }}>
+                        <Box sx={{ bgcolor: "white", borderRadius: "60%", p: 2 }}>
+                            <img src={logo} alt="Farmacie Kairos" style={{ height: "80px" }} />
+                        </Box>
+                    </Box>
 
                     {/* Desktop Menu */}
                     <Box sx={{ display: { xs: "none", md: "flex" }, gap: 2 }}>

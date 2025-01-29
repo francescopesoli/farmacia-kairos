@@ -20,7 +20,7 @@ const HeroSection = () => {
             </Box>
 
             {/* Immagine */}
-            <Box className="w-80 h-80 rounded-full overflow-hidden shadow-lg">
+            <Box className="w-50 h-50 rounded-full overflow-hidden shadow-lg">
                 <img src={heroImage} alt="Team" className="w-full h-full object-cover" />
             </Box>
         </div>

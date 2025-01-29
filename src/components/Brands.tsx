@@ -4,11 +4,9 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const brands = [
-    "/brands/ceraVee.png",
-    "/brands/brand2.png",
-    "/brands/brand3.png",
-    "/brands/brand4.png",
-    "/brands/brand5.png",
+    "/brands/angelini.svg",
+    "/brands/bayer.svg",
+    "/brands/menarini.svg",
 ];
 
 // 🔹 Raddoppiamo l'array per evitare spazi vuoti nel carosello
@@ -27,21 +25,25 @@ const settings = {
         {
             breakpoint: 1024,
             settings: { slidesToShow: 3 },
+            speed: 3000,
+
         },
         {
             breakpoint: 768,
             settings: { slidesToShow: 2 },
+            speed: 3000,
         },
         {
             breakpoint: 480,
             settings: { slidesToShow: 1 },
+            speed: 3000,
         },
     ],
 };
 
 const Brands = () => {
     return (
-        <Box sx={{ py: 5, backgroundColor: "#f8f9fa", textAlign: "center" }}>
+        <Box sx={{ py: 5, textAlign: "center" }}>
             <Typography variant="h4" sx={{ fontWeight: "bold", mb: 4, color: "primary.main" }}>
                 Le nostre marche
             </Typography>
@@ -53,11 +55,8 @@ const Brands = () => {
                                 src={logo}
                                 alt={`Brand ${index}`}
                                 style={{
-                                    width: "120px",
+                                    width: "170px",
                                     height: "auto",
-                                    borderRadius: "10px",
-                                    backgroundColor: "white",
-                                    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
                                     padding: "5px",
                                 }}
                             />
