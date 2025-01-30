@@ -43,7 +43,7 @@ const settings = {
 
 const Brands = () => {
     return (
-        <Box sx={{ py: 5, textAlign: "center" }}>
+        <Box sx={{ py: 2, textAlign: "center" }}>
             <Typography variant="h4" sx={{ fontWeight: "bold", mb: 4, color: "primary.main" }}>
                 Le nostre marche
             </Typography>

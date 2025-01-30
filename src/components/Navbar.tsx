@@ -23,40 +23,27 @@ const Navbar = () => {
 
     const navLinks = [
         { label: "Home", path: "/" },
-        { label: "Chi siamo", path: "/chi-siamo" },
-        { label: "I nostri marchi", path: "/marchi" },
-        { label: "Le nostre farmacie", path: "/farmacie" },
-        { label: "I prodotti del nostro laboratorio", path: "/prodotti" },
+        { label: "Chi Siamo", path: "/chi-siamo" },
+        { label: "I Nostri Marchi", path: "/marchi" },
+        { label: "Le Nostre Farmacie", path: "/farmacie" },
+        { label: "I Prodotti del Nostro Laboratorio", path: "/prodotti" },
     ];
 
     return (
         <>
-            <AppBar position="sticky" sx={{ bgcolor: "primary.main", px: 2 }}>
+            <AppBar position="sticky" sx={{ bgcolor: "primary.light", px: 2 }}>
                 <Toolbar sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                    {/* Logo più grande */}
+                    {/* Logo più grande e centrato */}
                     <Box sx={{ display: "flex", alignItems: "center" }}>
-                        <Box
-                            sx={{
-                                bgcolor: "white",
-                                borderRadius: "50%",
-                                p: 1,
-                                display: "flex",
-                                alignItems: "center",
-                                justifyContent: "center",
-                                height: { xs: 80, md: 100 }, // Maggiore dimensione
-                                width: { xs: 80, md: 100 },
-                            }}
-                        >
-                            <img
-                                src={logo}
-                                alt="Farmacie Kairos"
-                                style={{ maxHeight: "100%", maxWidth: "100%" }}
-                            />
-                        </Box>
+                        <img
+                            src={logo}
+                            alt="Farmacie Kairos"
+                            style={{ height: "50px", width: "auto" }}
+                        />
                     </Box>
 
                     {/* Desktop Menu */}
-                    <Box sx={{ display: { xs: "none", md: "flex" }, gap: 3 }}>
+                    <Box sx={{ display: { xs: "none", md: "flex" }, gap: 2 }}>
                         {navLinks.map((item) => (
                             <Button
                                 key={item.path}
@@ -83,10 +70,17 @@ const Navbar = () => {
             <Collapse in={mobileOpen} timeout="auto" unmountOnExit>
                 <Box
                     sx={{
-                        bgcolor: "primary.main",
+                        bgcolor: "primary.light",
                         color: "white",
                         textAlign: "center",
                         py: 3,
+                        width: "100vw", // Copre tutta la larghezza senza spazi bianchi
+                        position: "fixed", // Assicura che rimanga visibile durante lo scroll
+                        top: 64, // Altezza della navbar
+                        left: 0,
+                        height: "100vh", // Copre tutta l'altezza dello schermo
+                        overflowY: "auto", // Permette di scrollare se necessario
+                        zIndex: 10,
                     }}
                 >
                     <List>
@@ -102,7 +96,7 @@ const Navbar = () => {
                                 }}
                                 onClick={() => setMobileOpen(false)}
                             >
-                                <ListItemText primary={item.label} sx={{ fontSize: "1.2rem", color: "white" }} />
+                                <ListItemText primary={item.label} sx={{ fontSize: "1.2rem", color: "white", textAlign: "center" }} />
                             </ListItem>
                         ))}
                     </List>
