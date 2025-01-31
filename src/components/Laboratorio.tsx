@@ -19,7 +19,7 @@ const Laboratorio = () => {
 
     return (
         <Box className="py-10 bg-gray-100 text-center">
-            <Typography variant="h4" className="font-bold mb-6 text-primary">
+            <Typography variant="h4" sx={{ fontWeight: "bold", mb: 4, color: "primary.main" }}>
                 I prodotti del nostro laboratorio
             </Typography>
             <Slider {...settings}>

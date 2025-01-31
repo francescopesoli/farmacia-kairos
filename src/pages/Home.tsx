@@ -7,11 +7,25 @@ import ChiSiamo from "@components/ChiSiamo";
 const Home = () => {
     return (
         <>
-            <HeroSection />
-            <ChiSiamo />
-            <Brands />
-            <Farmacie />
-            <Laboratorio />
+            <section id="home">
+                <HeroSection />
+            </section>
+
+            <section id="chi-siamo">
+                <ChiSiamo />
+            </section>
+
+            <section id="marchi">
+                <Brands />
+            </section>
+
+            <section id="farmacie">
+                <Farmacie />
+            </section>
+
+            <section id="prodotti">
+                <Laboratorio />
+            </section>
         </>
     );
 };

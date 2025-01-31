@@ -11,7 +11,7 @@ import {
     ListItemText,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Link } from "react-router-dom";
+import { Link as ScrollLink } from "react-scroll";
 import logo from "@assets/logoKairos.svg";
 
 const Navbar = () => {
@@ -22,24 +22,26 @@ const Navbar = () => {
     };
 
     const navLinks = [
-        { label: "Home", path: "/" },
-        { label: "Chi Siamo", path: "/chi-siamo" },
-        { label: "I Nostri Marchi", path: "/marchi" },
-        { label: "Le Nostre Farmacie", path: "/farmacie" },
-        { label: "I Prodotti del Nostro Laboratorio", path: "/prodotti" },
+        { label: "Home", path: "home" },
+        { label: "Chi Siamo", path: "chi-siamo" },
+        { label: "Le nostre marche", path: "marchi" },
+        { label: "Le nostre farmacie", path: "farmacie" },
+        { label: "I Prodotti del Nostro Laboratorio", path: "prodotti" },
     ];
 
     return (
         <>
             <AppBar position="sticky" sx={{ bgcolor: "primary.light", px: 2 }}>
                 <Toolbar sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                    {/* Logo più grande e centrato */}
+                    {/* Logo cliccabile che usa ScrollLink */}
                     <Box sx={{ display: "flex", alignItems: "center" }}>
-                        <img
-                            src={logo}
-                            alt="Farmacie Kairos"
-                            style={{ height: "50px", width: "auto" }}
-                        />
+                        <ScrollLink to="home" smooth={true} duration={500} offset={-70} style={{ cursor: "pointer" }}>
+                            <img
+                                src={logo}
+                                alt="Farmacie Kairos"
+                                style={{ height: "35px", width: "auto" }}
+                            />
+                        </ScrollLink>
                     </Box>
 
                     {/* Desktop Menu */}
@@ -47,9 +49,12 @@ const Navbar = () => {
                         {navLinks.map((item) => (
                             <Button
                                 key={item.path}
-                                component={Link}
+                                component={ScrollLink}
                                 to={item.path}
-                                sx={{ color: "white", fontSize: "1rem", fontWeight: 500 }}
+                                smooth={true}
+                                duration={500}
+                                offset={-70}
+                                sx={{ color: "white", fontSize: "1rem", fontWeight: 500, cursor: "pointer" }}
                             >
                                 {item.label}
                             </Button>
@@ -74,12 +79,12 @@ const Navbar = () => {
                         color: "white",
                         textAlign: "center",
                         py: 3,
-                        width: "100vw", // Copre tutta la larghezza senza spazi bianchi
-                        position: "fixed", // Assicura che rimanga visibile durante lo scroll
-                        top: 64, // Altezza della navbar
+                        width: "100vw",
+                        position: "fixed",
+                        top: 64,
                         left: 0,
-                        height: "100vh", // Copre tutta l'altezza dello schermo
-                        overflowY: "auto", // Permette di scrollare se necessario
+                        height: "100vh",
+                        overflowY: "auto",
                         zIndex: 10,
                     }}
                 >
@@ -87,11 +92,15 @@ const Navbar = () => {
                         {navLinks.map((item) => (
                             <ListItem
                                 key={item.path}
-                                component={Link}
+                                component={ScrollLink}
                                 to={item.path}
+                                smooth={true}
+                                duration={500}
+                                offset={-70}
                                 sx={{
                                     justifyContent: "center",
                                     py: 1,
+                                    cursor: "pointer",
                                     "&:hover": { bgcolor: "rgba(255,255,255,0.1)" },
                                 }}
                                 onClick={() => setMobileOpen(false)}
