@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
     AppBar,
     Toolbar,
@@ -16,6 +16,23 @@ import logo from "@assets/logoKairos.svg";
 
 const Navbar = () => {
     const [mobileOpen, setMobileOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
+
+    // Rileva lo scroll della pagina
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 50) {
+                setScrolled(true);
+            } else {
+                setScrolled(false);
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
 
     const handleToggle = () => {
         setMobileOpen(!mobileOpen);
@@ -31,10 +48,19 @@ const Navbar = () => {
 
     return (
         <>
-            <AppBar position="sticky" sx={{ bgcolor: "primary.light",width: "100vw",  // 🔥 Forza la larghezza a 100% della viewport
-                left: 0,  }}>
+            {/* Navbar principale */}
+            <AppBar
+                position="fixed"
+                sx={{
+                    bgcolor: mobileOpen ? "secondary.light" : scrolled ? "primary.light" : "secondary.light",
+                    transition: "background-color 0.3s ease-in-out",
+                    width: "100vw",
+                    left: 0,
+                    boxShadow: "none",
+                }}
+            >
                 <Toolbar sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", minHeight: "56px" }}>
-                    {/* Logo cliccabile che usa ScrollLink */}
+                    {/* Logo */}
                     <Box sx={{ display: "flex", alignItems: "center" }}>
                         <ScrollLink to="home" smooth={true} duration={500} offset={-70} style={{ cursor: "pointer" }}>
                             <img
@@ -55,7 +81,13 @@ const Navbar = () => {
                                 smooth={true}
                                 duration={500}
                                 offset={-70}
-                                sx={{ color: "white", fontSize: "1rem", fontWeight: 500, cursor: "pointer" }}
+                                sx={{
+                                    color: mobileOpen ? "black" : scrolled ? "white" : "black",
+                                    fontSize: "1rem",
+                                    fontWeight: 500,
+                                    cursor: "pointer",
+                                    transition: "color 0.3s ease-in-out",
+                                }}
                             >
                                 {item.label}
                             </Button>
@@ -65,7 +97,7 @@ const Navbar = () => {
                     {/* Mobile Menu Icon */}
                     <IconButton
                         onClick={handleToggle}
-                        sx={{ display: { xs: "flex", md: "none" }, color: "white" }}
+                        sx={{ display: { xs: "flex", md: "none" }, color: scrolled ? "white" : "black" }}
                     >
                         <MenuIcon />
                     </IconButton>
@@ -76,12 +108,11 @@ const Navbar = () => {
             <Collapse in={mobileOpen} timeout="auto" unmountOnExit>
                 <Box
                     sx={{
-                        bgcolor: "primary.light",
-                        color: "white",
+                        bgcolor: "secondary.light",
+                        color: "black",
                         textAlign: "center",
                         py: 3,
-                        width: "100vw",  // 🔥 Assicura che occupi tutto lo schermo
-                        maxWidth: "100%",  // 🔥 Impedisce overflow indesiderati
+                        width: "100vw",
                         position: "fixed",
                         top: 56,
                         left: 0,
@@ -103,11 +134,12 @@ const Navbar = () => {
                                     justifyContent: "center",
                                     py: 1,
                                     cursor: "pointer",
-                                    "&:hover": { bgcolor: "rgba(255,255,255,0.1)" },
+                                    color: "black",
+                                    "&:hover": { bgcolor: "rgba(0,0,0,0.1)" },
                                 }}
                                 onClick={() => setMobileOpen(false)}
                             >
-                                <ListItemText primary={item.label} sx={{ fontSize: "1.2rem", color: "white", textAlign: "center" }} />
+                                <ListItemText primary={item.label} sx={{ fontSize: "1.2rem", textAlign: "center" }} />
                             </ListItem>
                         ))}
                     </List>

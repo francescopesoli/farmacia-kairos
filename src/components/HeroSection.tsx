@@ -9,7 +9,7 @@ const HeroSection = () => {
         <>
             {isMobile ? (
                 // **LAYOUT MOBILE**
-                <Box className="flex flex-col items-center justify-center bg-gray-100 px-6 py-16 min-h-[90vh]">
+                <Box className="flex flex-col items-center justify-center  px-6 py-16 min-h-[90vh]">
                     {/* Testo */}
                     <Box className="max-w-sm text-center">
                         <Typography
@@ -47,7 +47,7 @@ const HeroSection = () => {
                 </Box>
             ) : (
                 // **LAYOUT DESKTOP**
-                <Box className="flex flex-row-reverse items-center justify-between bg-gray-100 px-12 py-32 min-h-[90vh]">
+                <Box className="flex flex-row-reverse items-center justify-between px-12 py-32 min-h-[90vh]">
                     {/* Immagine */}
                     <Box className="flex justify-end flex-1" sx={{ width: "100%", maxWidth: "500px" }}>
                         <img

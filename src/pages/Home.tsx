@@ -1,3 +1,4 @@
+import { Box, Container } from "@mui/material";
 import HeroSection from "@components/HeroSection";
 import Brands from "@components/Brands";
 import Farmacie from "@components/Farmacie";
@@ -7,25 +8,49 @@ import ChiSiamo from "@components/ChiSiamo";
 const Home = () => {
     return (
         <>
-            <section id="home">
-                <HeroSection />
-            </section>
+            {/* Sezione Hero con sfondo in basso */}
+            <Box
+                id="home"
+                sx={{
+                    position: "relative",
+                    bgcolor: "#f3f5fa",
+                    backgroundImage: 'url(/sfondo3.svg)',
+                    backgroundPosition: 'bottom',
+                    backgroundRepeat: 'no-repeat',
+                    backgroundSize: 'cover', // Adjusted size
+                    py: 8, // Added padding to the bottom
+                    pb: 25,
+                }}
+            >
+                <Container maxWidth="lg">
+                    <HeroSection />
+                </Container>
+            </Box>
 
-            <section id="chi-siamo">
-                <ChiSiamo />
-            </section>
+            {/* Sezioni successive */}
+            <Box id="chi-siamo" sx={{ bgcolor: "white", py: 8 }}>
+                <Container maxWidth="lg">
+                    <ChiSiamo />
+                </Container>
+            </Box>
 
-            <section id="marchi">
-                <Brands />
-            </section>
+            <Box id="marchi" sx={{ bgcolor: "#f3f5fa", py: 8 }}>
+                <Container maxWidth="lg">
+                    <Brands />
+                </Container>
+            </Box>
 
-            <section id="farmacie">
-                <Farmacie />
-            </section>
+            <Box id="farmacie" sx={{ bgcolor: "white", py: 8 }}>
+                <Container maxWidth="lg">
+                    <Farmacie />
+                </Container>
+            </Box>
 
-            <section id="prodotti">
-                <Laboratorio />
-            </section>
+            <Box id="prodotti" sx={{ bgcolor: "#f3f5fa", py: 8 }}>
+                <Container maxWidth="lg">
+                    <Laboratorio />
+                </Container>
+            </Box>
         </>
     );
 };

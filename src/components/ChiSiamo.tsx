@@ -2,7 +2,7 @@ import { Box, Typography } from "@mui/material";
 
 const ChiSiamo = () => {
     return (
-        <Box sx={{ py: 5, textAlign: "center" }}>
+        <Box  sx={{ py: 5, textAlign: "center" }}>
             <Typography variant="h4" sx={{ fontWeight: "bold", mb: 4, color: "primary.main" }}>
                 Chi Siamo
             </Typography>
