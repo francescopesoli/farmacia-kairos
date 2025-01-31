@@ -6,10 +6,6 @@ import Footer from "@components/Footer";
 
 // Pagine
 import Home from "@pages/Home";
-import ChiSiamo from "@pages/ChiSiamo";
-import Marchi from "@pages/Marchi";
-import Farmacie from "@pages/Farmacie";
-import ProdottiLab from "@pages/ProdottiLab";
 
 function App() {
     return (
@@ -20,10 +16,6 @@ function App() {
                 <Container maxWidth="lg">
                     <Routes>
                         <Route path="/" element={<Home />} />
-                        <Route path="/chi-siamo" element={<ChiSiamo />} />
-                        <Route path="/marchi" element={<Marchi />} />
-                        <Route path="/farmacie" element={<Farmacie />} />
-                        <Route path="/prodotti" element={<ProdottiLab />} />
                     </Routes>
                 </Container>
                 <Footer />

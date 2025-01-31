@@ -10,7 +10,7 @@ const HeroSection = () => {
                 <Typography variant="h2" className="font-bold text-primary" sx={{ fontFamily: "serif", letterSpacing: 1, mb: 3, mt:4 }}>
                     Farmacie Kairos
                 </Typography>
-                <Typography variant="h5" className=" text-gray-700" sx={{ fontStyle: "italic", mb: 4 }}>
+                <Typography variant="h5" className=" text-gray-700" sx={{ fontStyle: "italic", mb: 2 }}>
                     IL MOMENTO GIUSTO PER PRENDERTI CURA DI TE
                 </Typography>
                 <Button
@@ -21,7 +21,7 @@ const HeroSection = () => {
                     smooth={true}
                     duration={500}
                     offset={-70}
-                    sx={{ fontWeight: "bold", textTransform: "uppercase", cursor: "pointer" }}
+                    sx={{ fontWeight: "bold", textTransform: "uppercase", cursor: "pointer", mb: 2 }}
                 >
                     Scopri di più
                 </Button>

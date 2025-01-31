@@ -31,8 +31,9 @@ const Navbar = () => {
 
     return (
         <>
-            <AppBar position="sticky" sx={{ bgcolor: "primary.light", px: 2 }}>
-                <Toolbar sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <AppBar position="sticky" sx={{ bgcolor: "primary.light",width: "100vw",  // 🔥 Forza la larghezza a 100% della viewport
+                left: 0,  }}>
+                <Toolbar sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", minHeight: "56px" }}>
                     {/* Logo cliccabile che usa ScrollLink */}
                     <Box sx={{ display: "flex", alignItems: "center" }}>
                         <ScrollLink to="home" smooth={true} duration={500} offset={-70} style={{ cursor: "pointer" }}>
@@ -79,12 +80,13 @@ const Navbar = () => {
                         color: "white",
                         textAlign: "center",
                         py: 3,
-                        width: "100vw",
+                        width: "100vw",  // 🔥 Assicura che occupi tutto lo schermo
+                        maxWidth: "100%",  // 🔥 Impedisce overflow indesiderati
                         position: "fixed",
-                        top: 64,
+                        top: 56,
                         left: 0,
                         height: "100vh",
-                        overflowY: "auto",
+                        overflowY: "hidden",
                         zIndex: 10,
                     }}
                 >
