@@ -12,19 +12,22 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link as ScrollLink } from "react-scroll";
-import logo from "@assets/logoKairos.svg";
+import logo from "@assets/logo_KAIROS.svg";
 
 const Navbar = () => {
     const [mobileOpen, setMobileOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
+    const [logoSize, setLogoSize] = useState(150); // Grande quando atterri sulla pagina
 
-    // Rileva lo scroll della pagina
+    // Rileva lo scroll della pagina e cambia la dimensione del logo
     useEffect(() => {
         const handleScroll = () => {
             if (window.scrollY > 50) {
                 setScrolled(true);
+                setLogoSize(90); // Logo più piccolo dopo lo scroll
             } else {
                 setScrolled(false);
+                setLogoSize(120); // Logo grande all'inizio
             }
         };
 
@@ -43,7 +46,6 @@ const Navbar = () => {
         { label: "Chi Siamo", path: "chi-siamo" },
         { label: "Le nostre marche", path: "marchi" },
         { label: "Le nostre farmacie", path: "farmacie" },
-        { label: "I Prodotti del Nostro Laboratorio", path: "prodotti" },
     ];
 
     return (
@@ -59,14 +61,18 @@ const Navbar = () => {
                     boxShadow: "none",
                 }}
             >
-                <Toolbar sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", minHeight: "56px" }}>
-                    {/* Logo */}
+                <Toolbar sx={{ display: "flex", justifyContent: "space-between", alignItems: "center", minHeight: "70px", transition: "min-height 0.3s ease-in-out" }}>
+                    {/* Logo con animazione */}
                     <Box sx={{ display: "flex", alignItems: "center" }}>
                         <ScrollLink to="home" smooth={true} duration={500} offset={-70} style={{ cursor: "pointer" }}>
                             <img
                                 src={logo}
                                 alt="Farmacie Kairos"
-                                style={{ height: "35px", width: "auto" }}
+                                style={{
+                                    height: `${logoSize}px`,
+                                    width: "auto",
+                                    transition: "height 0.3s ease-in-out",
+                                }}
                             />
                         </ScrollLink>
                     </Box>
@@ -108,13 +114,13 @@ const Navbar = () => {
             <Collapse in={mobileOpen} timeout="auto" unmountOnExit>
                 <Box
                     sx={{
-                        bgcolor: "secondary.light",
+                        bgcolor: "secondary.main",
                         color: "black",
                         textAlign: "center",
                         py: 3,
                         width: "100vw",
                         position: "fixed",
-                        top: 56,
+                        top: 70,
                         left: 0,
                         height: "100vh",
                         overflowY: "hidden",

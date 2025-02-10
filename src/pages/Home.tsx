@@ -2,7 +2,6 @@ import { Box, Container } from "@mui/material";
 import HeroSection from "@components/HeroSection";
 import Brands from "@components/Brands";
 import Farmacie from "@components/Farmacie";
-import Laboratorio from "@components/Laboratorio";
 import ChiSiamo from "@components/ChiSiamo";
 
 const Home = () => {
@@ -43,12 +42,6 @@ const Home = () => {
             <Box id="farmacie" sx={{ bgcolor: "white", py: 8 }}>
                 <Container maxWidth="lg">
                     <Farmacie />
-                </Container>
-            </Box>
-
-            <Box id="prodotti" sx={{ bgcolor: "#f3f5fa", py: 8 }}>
-                <Container maxWidth="lg">
-                    <Laboratorio />
                 </Container>
             </Box>
         </>

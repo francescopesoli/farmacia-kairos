@@ -69,6 +69,7 @@ const Footer: React.FC = () => {
                 <Link href="https://www.facebook.com/farmacie_kairos/" target="_blank" color="inherit" sx={{ transition: "0.3s", '&:hover': { color: "#ffcc00" } }}>
                     <FacebookIcon fontSize="large" />
                 </Link>
+
             </Box>
         </Box>
     );

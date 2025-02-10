@@ -4,9 +4,15 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const brands = [
-    "/brands/angelini.svg",
-    "/brands/bayer.svg",
-    "/brands/menarini.svg",
+    "/brands/Aboca.svg",
+    "/brands/Avène.svg",
+    "/brands/CeraVe.svg",
+    "/brands/Dompé.svg",
+    "/brands/Haleon.svg",
+    "/brands/Hipp.svg",
+    "/brands/La-Roche-Posay.svg",
+    "/brands/Reckitt.svg",
+    "/brands/Vichy.svg",
 ];
 
 // 🔹 Raddoppiamo l'array per evitare spazi vuoti nel carosello
@@ -14,7 +20,7 @@ const extendedBrands = [...brands, ...brands];
 
 const settings = {
     infinite: true, // Loop infinito
-    speed: 3000, // Velocità fluida
+    speed: 4000, // Velocità fluida
     slidesToShow: 5, // Mostra più elementi su desktop
     slidesToScroll: 1, // Scorrimento di un elemento alla volta
     autoplay: true,
@@ -25,18 +31,18 @@ const settings = {
         {
             breakpoint: 1024,
             settings: { slidesToShow: 3 },
-            speed: 3000,
+            speed: 4000,
 
         },
         {
             breakpoint: 768,
             settings: { slidesToShow: 2 },
-            speed: 3000,
+            speed: 4000,
         },
         {
             breakpoint: 480,
             settings: { slidesToShow: 1 },
-            speed: 3000,
+            speed: 4000,
         },
     ],
 };
@@ -55,7 +61,7 @@ const Brands = () => {
                                 src={logo}
                                 alt={`Brand ${index}`}
                                 style={{
-                                    width: "170px",
+                                    width: "180px",
                                     height: "auto",
                                     padding: "5px",
                                 }}
